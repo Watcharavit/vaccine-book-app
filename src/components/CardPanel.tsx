@@ -1,6 +1,7 @@
 "use client"
 import { useReducer, useState } from "react"
 import ProductCard from "@/components/ProductCard"
+import Link from "next/link";
 
 export default function CardPanel() {
 	const reveiwReducer = (reviewList: Map<string, number>, action: { type: boolean; hospitalName: string; value: number }) => {
@@ -14,27 +15,27 @@ export default function CardPanel() {
 	}
 	const [reviewList, reviewDispatch] = useReducer(reveiwReducer, new Map<string, number>())
 	const [resetHospital, setResetHospital] = useState<string | null>(null)
+	// temp data
+	const hospitalData = [
+		{hid:"001",name:"Chulalongkorn Hospital",image:"/img/chula.png"},
+		{hid:"002",name:"Rajavithi Hospital",image:"/img/rajavithi.png"},
+		{hid:"003",name:"Thammasat University Hospital",image:"/img/thammasat.png"},
+	]
 	return (
 		<div>
 			<div className="m-4 justify-around items-center flex flex-row flex-wrap">
-				<ProductCard
-					name="Chulalongkorn Hospital"
-					img_path="/img/chula.png"
-					changedReview={(newValue: number) => reviewDispatch({ type: true, hospitalName: "Chulalongkorn Hospital", value: newValue })}
-					resetRating={resetHospital === "Chulalongkorn Hospital"}
-				/>
-				<ProductCard
-					name="Rajavithi Hospital"
-					img_path="/img/rajavithi.png"
-					changedReview={(newValue: number) => reviewDispatch({ type: true, hospitalName: "Rajavithi Hospital", value: newValue })}
-					resetRating={resetHospital === "Rajavithi Hospital"}
-				/>
-				<ProductCard
-					name="Thammasat University Hospital"
-					img_path="/img/thammasat.png"
-					changedReview={(newValue: number) => reviewDispatch({ type: true, hospitalName: "Thammasat University Hospital", value: newValue })}
-					resetRating={resetHospital === "Thammasat University Hospital"}
-				/>
+				{
+					hospitalData.map((hospitalItem)=>(
+						<Link href={`/hospital/${hospitalItem.hid}`} className="w-1/4">
+						<ProductCard
+						name={hospitalItem.name}
+						img_path={hospitalItem.image}
+						changedReview={(newValue: number) => reviewDispatch({ type: true, hospitalName: hospitalItem.name, value: newValue })}
+						resetRating={resetHospital === hospitalItem.image}
+						/>
+						</Link>
+					))
+				}
 			</div>
 			<div className="w-full text-xl font-medium">Review List</div>
 			<ul className="mt-4">

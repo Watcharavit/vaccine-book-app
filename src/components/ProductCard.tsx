@@ -28,9 +28,13 @@ export default function ProductCard({ name, img_path, changedReview, resetRating
 				name="controlled"
 				precision={0.5}
 				value={rating}
-				onChange={(event, newValue) => {
+				onChange={(e, newValue) => {
 					setRating(newValue)
 					changedReview(newValue)
+
+				}}
+				onClick={(e)=> {		
+					e.stopPropagation()
 				}}
 			/>
 		</InteractiveCard>

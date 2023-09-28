@@ -1,9 +1,10 @@
 "use client"
 import Image from "next/image"
 import { useState } from "react"
-
+import { useRouter } from "next/navigation"
 export default function Banner() {
 	const [index, setIndex] = useState(0)
+	const router = useRouter()
 	const cover = ["/img/vaccine-banner.jpg", "/img/lab.jpg", "/img/community.jpg", "/img/vaccine2.jpg"]
 	const color = ["text-white", "text-black", "text-white", "text-black"]
 	return (
@@ -19,6 +20,10 @@ export default function Banner() {
 				<br></br>
 				<h2 className={`text-2xl ${color[index % 4]}`}>The Shot of Hope for a Healthier Tomorrow"</h2>
 			</div>
+			<button className="bg-white border font-semibold py-2 px-2 m-2 rounded z-30 
+			absolute bottom-0 right-0 hover:bg-cyan-700 hover:text-white" 
+			onClick={(e)=>{e.stopPropagation();router.push("/hospital")}}>
+			Select Hospital</button>
 		</div>
 	)
 }
