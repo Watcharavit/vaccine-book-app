@@ -30,8 +30,8 @@ export default function CardPanel() {
 						<ProductCard
 						name={hospitalItem.name}
 						img_path={hospitalItem.image}
-						changedReview={(newValue: number) => reviewDispatch({ type: true, hospitalName: hospitalItem.name, value: newValue })}
-						resetRating={resetHospital === hospitalItem.image}
+						// changedReview={(newValue: number) => reviewDispatch({ type: true, hospitalName: hospitalItem.name, value: newValue })}
+						// resetRating={resetHospital === hospitalItem.image}
 						/>
 						</Link>
 					))
