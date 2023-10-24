@@ -1,17 +1,17 @@
-"use client"
-import Image from "next/image"
-import InteractiveCard from "./Interactive"
-import { Rating } from "@mui/material"
-import { useEffect, useState } from "react"
+"use client";
+import Image from "next/image";
+import InteractiveCard from "./Interactive";
+import { Rating } from "@mui/material";
+import { useEffect, useState } from "react";
 
 interface ProductCardProps {
-	name: string
-	img_path: string
+	name: string;
+	img_path: string;
 	// changedReview: Function
 	// resetRating: boolean
 }
 
-export default function ProductCard({ name, img_path, /*changedReview, resetRating */}: ProductCardProps) {
+export default function ProductCard({ name, img_path /*changedReview, resetRating */ }: ProductCardProps) {
 	// const [rating, setRating] = useState<number | null>(0)
 	// useEffect(() => {
 	// 	if (resetRating) {
@@ -38,5 +38,5 @@ export default function ProductCard({ name, img_path, /*changedReview, resetRati
 				}}
 			/> */}
 		</InteractiveCard>
-	)
+	);
 }

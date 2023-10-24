@@ -1,9 +1,9 @@
-"use client"
-import BookingCart from "@/components/BookingCart"
-export default function CartPage(){
-    return (
-        <main>
-            <BookingCart/>
-        </main>
-    )
+"use client";
+import BookingCart from "@/components/BookingCart";
+export default function CartPage() {
+	return (
+		<main>
+			<BookingCart />
+		</main>
+	);
 }
