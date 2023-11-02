@@ -2,7 +2,8 @@ import HospitalCatalog from "@/components/HospitalCatalog";
 import getHospitals from "@/libs/getHospitals";
 import { Suspense } from "react";
 import { LinearProgress } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React from "react";
+import AddHospitalForm from "@/components/AddHospitalForm";
 
 export default function Hospital() {
 	const hospitals = getHospitals();
@@ -16,6 +17,7 @@ export default function Hospital() {
 				}
 			>
 				<HospitalCatalog hospitals={hospitals} />
+				<AddHospitalForm />
 			</Suspense>
 		</main>
 	);

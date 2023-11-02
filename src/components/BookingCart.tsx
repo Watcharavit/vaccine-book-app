@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { removeBooking } from "@/redux/feature/bookSlice";
 
 export default function BookingCart() {
-	const bookItem = useAppSelector((state) => state.bookSlice.bookItem);
+	const bookItem = useAppSelector((state) => state.reduxPersistedReducer.bookSlice.bookItem);
 	const dispatch = useDispatch<AppDispatch>();
 	if (!bookItem) {
 		return <div className="mx-8 my-5">No Vaccine Booking</div>;
